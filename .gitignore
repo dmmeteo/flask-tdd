@@ -101,5 +101,5 @@ ENV/
 .mypy_cache/
 
 # database
+*.db
 db-data/
-node_modules/
