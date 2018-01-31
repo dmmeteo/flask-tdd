@@ -87,6 +87,12 @@ class FlaskrTestCase(unittest.TestCase):
         assert b'&lt;Hello&gt;' in rv.data
         assert b'<strong>HTML</strong> allowed here' in rv.data
 
+    def test_search(self):
+        """ Ensure that search is working correctly """
+        tester = app.test_client(self)
+        response = tester.get('/search', content_type='html/text')
+        self.assertEqual(response.status_code, 301)
+
     def test_delete_message(self):
         """ Ensure the messages are being deleted """
         rv = self.app.get('/delete/1')
